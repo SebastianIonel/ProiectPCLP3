@@ -1,3 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
+
 void ADD (char *data, char *activity);
 void CLEAR (char *data);
 void CLOSE (char *current_data);
