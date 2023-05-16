@@ -8,7 +8,7 @@ void ADD(char *data, char *activity)
 	strcpy (directory, "directory/");
 	strcat (directory, data);
 	strcpy (activity, activity + 1);
-	activity[strlen(activity) - 1] = 0; 
+	activity[strlen(activity) - 2] = 0; 
 	strcat (activity, "\n");
 	FILE *in = fopen(directory, "rt");
 	if (in == NULL) {
@@ -17,10 +17,12 @@ void ADD(char *data, char *activity)
 			printf("Nu s-a putut deschide fisierul %s", directory);
 			return;
 		}
-		fputs(activity, out);	
+		fputs(activity, out);
+		fclose(out);	
 	} else {
 		fclose(in);
 		in = fopen(directory, "at");
 		fputs(activity, in);
+		fclose(in);
 	}
 }
