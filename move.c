@@ -13,8 +13,14 @@ void MOVE(char *data, char *new_data)
 		return;
 	}
 	char *activity = malloc(300 * sizeof(char));
+	char *activity1 = malloc(300 * sizeof(char));
 	while (fgets(activity, 300, in)) {
-		ADD(new_data, activity);
+		strcpy(activity1, "a");
+		strcat(activity1, activity);
+		strcat(activity1, "a");
+		// printf("%s", activity1);
+		ADD(new_data, activity1);
+		
 	}
 	remove(directory);
 	free(activity);
