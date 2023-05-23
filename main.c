@@ -136,7 +136,14 @@ int main(int argc, char *argv[])
         }
 
         if (strcmp(p, "MONTH") == 0) {
-            printf("Call MONTH\n");
+            // printf("Call MONTH\n");
+            strcpy(p, q + 1);
+            q = strchr(p, '\n');
+            q[0] = 0;
+            strcpy(aux, argv[1]);
+            aux[10] = 0;
+            // printf("%s %s\n", p, aux);
+            MONTH(p, aux);
             continue;
         }
 
