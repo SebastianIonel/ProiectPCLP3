@@ -168,8 +168,8 @@ int main(int argc, char *argv[])
             continue;
         }
 
-        if (strcmp(p, "FULL_CLEAR") == 0) {
-            printf("Call FULL_CLEAR\n");
+        if (strcmp(p, "FULL") == 0) {
+            // printf("Call FULL_CLEAR\n");
             FULL_CLEAR();
             continue;
         }
