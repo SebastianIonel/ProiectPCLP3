@@ -1,6 +1,8 @@
 CC=gcc
-DEPS=main.c 
+DEPS=main.c
 
+OBJ:=add.o
+OBJ+=clear.o
 
 %.o: %.c
 	$(CC) -c -o $@ $< -g
