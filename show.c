@@ -13,8 +13,9 @@ void SHOW(char *data)
 		return;
 	}
 	char *activity = malloc(300 * sizeof(char));
+	printf("In data %s\n", data);
 	while (fgets(activity, 300, in)) {
-		printf("%s\n", activity);
+		printf("%s", activity);
 	}
 	free(activity);
 	fclose(in);

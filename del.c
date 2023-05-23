@@ -4,7 +4,7 @@ void DEL(char *data, int n)
 {
 	data[2] = '.';
 	data[5] = '.';
-	char directory[20];
+	char directory[22];
 	strcpy (directory, "directory/");
 	strcat (directory, data);
 	FILE *in = fopen(directory, "rt");
@@ -12,18 +12,21 @@ void DEL(char *data, int n)
 		printf("In data %s\nNIMIC PROGRAMAT\n", data);
 		return;
 	}
-	int i = 0, j= 0, exista = 0;
+	int i = 0, j = 0, exista = 0;
 	char *activity = malloc(300 * sizeof(char));
 	char **V = NULL;
-	*V = malloc(100 * sizeof(char));
+	V = malloc(100 * sizeof(char *));
 	for (i = 0; i < 100; i++) {
-		V[i] = malloc(300 * sizeof(char *));
+		V[i] = malloc(300 * sizeof(char));
 	} 
-	while (fgets(activity, 300, in) && i < n) {
+	i = 0;
+	while (fgets(activity, 300, in)) {
 		if (i != n - 1) {
-			strcpy(V[i], activity);
+			strcpy(V[i], "A");
+			strcat(V[i], activity);
+			strcat(V[i], "A");
 		}
-		if (i == n) {
+		if (i == n - 1) {
 			exista = 1;
 		}
 		i ++;
@@ -39,7 +42,7 @@ void DEL(char *data, int n)
 		return;
 	}
 	CLEAR(data);
-	for(j = 0; j <= i; j++) {
+	for(j = 0; j < i; j++) {
 		if (j != n - 1)  {
 			ADD(data, V[j]);
 		}
