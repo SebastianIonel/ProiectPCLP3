@@ -14,8 +14,8 @@ void COMMON_M (char *month, char *data); // done
 void COMMON_D (char *day_start, char *day_end, char *data); // done
 void COUNT (char *data); // done
 void DEL (char *data, int n); // done
-void FULL_CLEAR ();
+void FULL_CLEAR (); // done
 void MONTH (char *month, char *data); // done
-void MOVE_ONLY (char *previous_data, char *next_data, int n);
+void MOVE_ONLY (char *previous_data, char *next_data, int n); // done
 void SHOW (char *data); // done
 void MOVE(char *data, char *new_data); // done

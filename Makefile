@@ -11,6 +11,8 @@ OBJ+=common_d.o
 OBJ+=move.o
 OBJ+=del.o
 OBJ+=month.o
+OBJ+=move_only.o
+OBJ+=full_clear.o
 
 %.o: %.c
 	$(CC) -c -o $@ $< -g

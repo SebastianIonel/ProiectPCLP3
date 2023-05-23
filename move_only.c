@@ -13,27 +13,29 @@ void MOVE_ONLY(char *previous_data, char *next_data, int n)
 	strcat (next_directory, next_data);
 	FILE *in = fopen(previous_directory, "rt");
 	if (in == NULL) {
-		printf("In data %s\nNIMIC PROGRAMAT\n", data);
+		printf("In data %s\nNIMIC PROGRAMAT\n", previous_data);
 		return;
 	}
 	int i = 0, j = 0, exista = 0;
 	char *activity = malloc(300 * sizeof(char));
 	char **V = NULL;
-	V = malloc(100 * sizeof(char));
+	V = malloc(100 * sizeof(char *));
 	for (i = 0; i < 100; i++) {
-		V[i] = malloc(300 * sizeof(char *));
+		V[i] = malloc(300 * sizeof(char));
 	} 
-	while (fgets(activity, 300, in) && i < n) {
+	i = 0;
+	while (fgets(activity, 300, in)) {
 		strcpy(V[i], "A");
 		strcat(V[i], activity);
 		strcat(V[i], "A");
 		if (i == n - 1) {
-			ADD(next_directory, V[i]);
+			ADD(next_data, V[i]);
+			exista = 1;
 		}
 		i ++;
 	}
 	if (exista == 0) {
-		printf("Nu exista activitatea %d in ziua %s", n, data);
+		printf("Nu exista activitatea %d in ziua %s", n, previous_data);
 		for(i = 0; i < 100; i++) {
 			free(V[i]);
 		}
@@ -42,10 +44,10 @@ void MOVE_ONLY(char *previous_data, char *next_data, int n)
 		fclose(in);
 		return;
 	}
-	CLEAR(data);
-	for(j = 0; j <= i; j++) {
+	CLEAR(previous_data);
+	for(j = 0; j < i; j++) {
 		if (j != n - 1)  {
-			ADD(data, V[j]);
+			ADD(previous_data, V[j]);
 		}
 	}
 	for(i = 0; i < 100; i++) {
