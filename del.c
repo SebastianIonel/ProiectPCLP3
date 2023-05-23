@@ -17,7 +17,7 @@ void DEL(char *data, int n)
 	char **V = NULL;
 	*V = malloc(100 * sizeof(char));
 	for (i = 0; i < 100; i++) {
-		V[i] = malloc(300 * sizeof(char));
+		V[i] = malloc(300 * sizeof(char *));
 	} 
 	while (fgets(activity, 300, in) && i < n) {
 		if (i != n - 1) {
